@@ -1,4 +1,0 @@
-const int VERSION1 = @book-manage_VERSION_one@
-const int VERSION2 = @book-manage_VERSION_two@
-const int VERSION3 = @book-manage_VERSION_three@
-const int VERSION4 = @book-manage_VERSION_four@

@@ -6,6 +6,9 @@
     > 
  ************************************************************************/
 
+#ifndef HEAD_HPP
+#define HEAD_HPP
+
 #include <iostream>
 extern "C"
 {
@@ -14,8 +17,13 @@ extern "C"
 }
 using namespace std;
 
+#include "debug.hpp"
+#include "book-manage_config.hpp"
+
 #define PACKAGE "book-manage"
 #define LOCALEDIR "./locale/"
 #define _(x) gettext(x)
-
+;
 void print_main_menu();
+
+#endif
