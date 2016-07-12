@@ -4,7 +4,7 @@ if [ $UID = 0 ];then
 		$1 = install
 	fi
 	case $1 in
-		install)
+	install)
 		mkdir build
 		cd build
 		cmake -DCMAKE_BUILD_TYPE=Release ..
@@ -14,11 +14,11 @@ if [ $UID = 0 ];then
 		cd ..
 		rm -rf build
 		;;
-		uninstall)
+	uninstall)
 		cat install_manifest.txt | sudo xargs rm -f
 		rm -f install_manifest
 		;;
-		*)
+	*)
 		echo 未知选项
 	esac
 else

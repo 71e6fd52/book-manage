@@ -3,9 +3,9 @@
 
 const int VERSION1 = 0;
 const int VERSION2 = 1;
-const int VERSION3 = 1;
+const int VERSION3 = 2;
 const int VERSION4 = 1;
 
-#define DEBUG 1
+#define DEBUG 0
 
 #endif //BOOK_MANAGE_CONFIG_HPP

@@ -21,7 +21,7 @@ using namespace std;
 #include "book-manage_config.hpp"
 
 #define PACKAGE "book-manage"
-#define LOCALEDIR "./locale/"
+#define LOCALEDIR "/usr/share/locale/"
 #define _(x) gettext(x)
 ;
 void print_main_menu();

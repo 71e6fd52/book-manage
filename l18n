@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+case $1 in
+1)
+	mv zh_CN.po old_zh_CN.po
+	mv en_US.po old_en_US.po
+	find ./src -iname *.cpp | xargs xgettext -k_ --from-code=UTF-8 -o book-manage.pot
+	msgmerge old_zh_CN.po book-manage.pot --output-file zh_CN.po
+	msgmerge old_en_US.po book-manage.pot --output-file en_US.po
+	rm -f old_zh_CN.po old_en_US.po book-manage.pot
+	;;
+2)
+	rm -f ./locale/zh_CN/LC_MESSAGES/book-manage.mo
+	rm -f ./locale/en_US/LC_MESSAGES/book-manage.mo
+	msgfmt zh_CN.po -o book-manage.mo
+	mv ./book-manage.mo ./locale/zh_CN/LC_MESSAGES/book-manage.mo
+	msgfmt en_US.po -o book-manage.mo
+	mv ./book-manage.mo ./locale/en_US/LC_MESSAGES/book-manage.mo
+	;;
+*)
+	echo 未知选项
+esac

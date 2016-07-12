@@ -28,15 +28,10 @@
 *.out
 *.app
 
-# Vim
-*.swp
-
 #other
+*.swp
 build/
 bin/
-*.po
-po_to_mo
-l18n
 .*
 !.git/
 !.gitignore

@@ -1,0 +1,37 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# dasd <7452756333@163.com>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-12 08:56+0800\n"
+"PO-Revision-Date: 2016-07-12 09:00+0800\n"
+"Last-Translator: dasd <7452756333@163.com>\n"
+"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: src/lib/menu.cpp:16
+msgid "(B)书籍\t(U)用户"
+msgstr "(B)书籍\t(U)用户"
+
+#: src/lib/menu.cpp:28 src/lib/menu.cpp:41 src/lib/menu.cpp:53
+#: src/lib/menu.cpp:61
+msgid "请输入正确的选项"
+msgstr "请输入正确的选项"
+
+#: src/lib/menu.cpp:32
+msgid "(I)增加\t(D)删除\t(S)查询"
+msgstr "(I)增加\t(D)删除\t(S)查询"
+
+#: src/lib/menu.cpp:33
+msgid "(B)借书\t(R)还书"
+msgstr "(B)借书\t(R)还书"
+
+
