@@ -3,8 +3,7 @@ project(book-manage)
 # 版本号
 set (book-manage_VERSION_one 0)
 set (book-manage_VERSION_two 1)
-set (book-manage_VERSION_three 2)
-set (book-manage_VERSION_four 1)
+set (book-manage_VERSION_three 3)
 # debug和release的参数
 SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} --std=c++0x -O0 -Wall -g -ggdb ")
 SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} --std=c++0x -O3 -Wall")

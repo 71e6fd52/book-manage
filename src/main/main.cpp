@@ -9,11 +9,12 @@
 #include "head.hpp"
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
 	setlocale(LC_ALL, "");
 	bindtextdomain(PACKAGE, LOCALEDIR);
 	textdomain(PACKAGE);
 	print_main_menu();
+	get_web(9787201066349);
 	return 0;
 }

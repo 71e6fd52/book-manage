@@ -17,13 +17,14 @@ extern "C"
 }
 using namespace std;
 
+#include "avhttp.hpp"
 #include "debug.hpp"
 #include "book-manage_config.hpp"
 
 #define PACKAGE "book-manage"
 #define LOCALEDIR "/usr/share/locale/"
 #define _(x) gettext(x)
-;
 void print_main_menu();
+string get_web(unsigned long isbn);
 
 #endif
