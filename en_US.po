@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-12 08:56+0800\n"
-"PO-Revision-Date: 2016-07-12 09:03+0800\n"
+"POT-Creation-Date: 2016-07-13 16:31+0800\n"
+"PO-Revision-Date: 2016-07-13 16:33+0800\n"
 "Last-Translator: dasd <7452756333@163.com>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
 "Language: zh_CN\n"
@@ -17,20 +17,33 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 2.0\n"
 
-#: src/lib/menu.cpp:16
-msgid "(B)书籍\t(U)用户"
-msgstr "(B)ook\t(U)ser"
+#: src/mainlib/do.cpp:25 src/mainlib/menu.cpp:37 src/mainlib/menu.cpp:79
+msgid "未完成"
+msgstr "unfinished"
 
-#: src/lib/menu.cpp:28 src/lib/menu.cpp:41 src/lib/menu.cpp:53
-#: src/lib/menu.cpp:61
+#: src/mainlib/do.cpp:28 src/mainlib/menu.cpp:94 src/mainlib/menu.cpp:104
+#: src/mainlib/menu.cpp:119
+msgid "选项不正确"
+msgstr "Option is  incorrect"
+
+#: src/mainlib/menu.cpp:16
+msgid "(Q)退出\t(B)书籍\t(U)用户"
+msgstr "(Q)uit\t(B)ook\t(U)ser"
+
+#: src/mainlib/menu.cpp:31 src/mainlib/menu.cpp:50 src/mainlib/menu.cpp:62
+#: src/mainlib/menu.cpp:73
 msgid "请输入正确的选项"
 msgstr "Please enter the correct option"
 
-#: src/lib/menu.cpp:32
-msgid "(I)增加\t(D)删除\t(S)查询"
-msgstr "(I)ncrease\t(D)elete\t(S)earch"
+#: src/mainlib/menu.cpp:41
+msgid "(Q)退出\t(I)增加\t(D)删除\t(S)查询"
+msgstr "(Q)uit\t(I)ncrease\t(D)elete\t(S)earch"
 
-#: src/lib/menu.cpp:33
+#: src/mainlib/menu.cpp:42
 msgid "(B)借书\t(R)还书"
 msgstr "(B)orrow books\t(R)eturn book"
+
+#: src/mainlib/menu.cpp:110
+msgid "请输入isbn号（0退出）："
+msgstr "Please enter the ISBN (0 to exit):"
 

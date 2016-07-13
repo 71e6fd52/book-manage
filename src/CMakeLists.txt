@@ -1,3 +1,3 @@
-add_subdirectory(main)
-add_subdirectory(lib)
+add_subdirectory(mainlib)
 add_subdirectory(isbn)
+add_subdirectory(main)

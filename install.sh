@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 if [ $UID = 0 ];then
 	if [ x$1 = x ];then
-		$1 = install
+		a=install
+	else
+		a=$1
 	fi
-	case $1 in
+	case $a in
 	install)
 		mkdir build
 		cd build

@@ -1,2 +1,0 @@
-/usr/local/bin/book-manage
-/usr/local/lib/libbook.so

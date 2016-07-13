@@ -1,3 +1,2 @@
 aux_source_directory(${PROJECT_SOURCE_DIR}/src/isbn LIB_SRCS_LIST)
-add_library(book-manage_isbn SHARED ${LIB_SRCS_LIST})
-install(FILES ${PROJECT_SOURCE_DIR}/bin/book-manage DESTINATION bin PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+add_library(book-manage_isbn ${LIB_SRCS_LIST})

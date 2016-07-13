@@ -10,7 +10,6 @@
 using namespace std;
 
 void init();
-int errout(string msg, int code);
 
 int main(int argc, char *argv[])
 {
@@ -19,8 +18,7 @@ int main(int argc, char *argv[])
 	textdomain(PACKAGE);
 	init();
 	print_main_menu();
-	string jsoninfo = get_web("9787115130228");
-	json(jsoninfo, sqlin, errout);
+
 	return 0;
 }
 
@@ -29,8 +27,3 @@ void init()
 	system("mkdir -p ~/.book-manage\n");
 }
 
-int errout(string msg, int code)
-{
-	cerr << code << ":" << msg << endl;
-	return 0;
-}

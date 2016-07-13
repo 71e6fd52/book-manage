@@ -30,8 +30,7 @@ using namespace std;
 #define _(x) gettext(x)
 void print_main_menu();
 string get_web(string isbn);
-void json(string in, int (*callback)(string bookname, string author, string translator,
-	string publisher, int pages, string summary, string author_intro, unsigned long long isbn13,
-	string price, string binging, string tags[]), int (*errout)(string msg, int code));
+int guide(char doing, char target);
+void increase(char target, string isbn);
 
 #endif
