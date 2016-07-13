@@ -3,8 +3,8 @@
 
 const int VERSION1 = 0;
 const int VERSION2 = 1;
-const int VERSION3 = 2;
-const int VERSION4 = 1;
+const int VERSION3 = 4;
+const char install_prefix[] = "/usr/local";
 
 #define DEBUG 1
 

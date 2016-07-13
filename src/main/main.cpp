@@ -9,12 +9,28 @@
 #include "head.hpp"
 using namespace std;
 
+void init();
+int errout(string msg, int code);
+
 int main(int argc, char *argv[])
 {
 	setlocale(LC_ALL, "");
 	bindtextdomain(PACKAGE, LOCALEDIR);
 	textdomain(PACKAGE);
+	init();
 	print_main_menu();
-	get_web(9787201066349);
+	string jsoninfo = get_web("9787115130228");
+	json(jsoninfo, sqlin, errout);
+	return 0;
+}
+
+void init()
+{
+	system("mkdir -p ~/.book-manage\n");
+}
+
+int errout(string msg, int code)
+{
+	cerr << code << ":" << msg << endl;
 	return 0;
 }

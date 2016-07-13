@@ -13,6 +13,6 @@
 using namespace std;
 
 #define DEBUGOUT(x) \
-	if (DEBUG	 == 1) cout << x << endl;
+	if (DEBUG == 1) cout << x << endl;
 
 #endif

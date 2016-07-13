@@ -1,9 +1,10 @@
 #ifndef BOOK_MANAGE_CONFIG_HPP
 #define BOOK_MANAGE_CONFIG_HPP
 
-const int VERSION1 = @book-manage_VERSION_one@;
-const int VERSION2 = @book-manage_VERSION_two@;
-const int VERSION3 = @book-manage_VERSION_three@;
+const int VERSION1 = @Major_Version_Number@;
+const int VERSION2 = @Minor_Version_Number@;
+const int VERSION3 = @Revision_Number@;
+const char install_prefix[] = "@CMAKE_INSTALL_PREFIX@";
 
 #cmakedefine01 DEBUG
 

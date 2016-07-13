@@ -14,17 +14,24 @@ extern "C"
 {
 	#include <locale.h>
 	#include <libintl.h>
+	#include <dirent.h>
 }
 using namespace std;
+
+#include "json/json.h"
 
 #include "avhttp.hpp"
 #include "debug.hpp"
 #include "book-manage_config.hpp"
+#include "sql.hpp"
 
 #define PACKAGE "book-manage"
 #define LOCALEDIR "/usr/share/locale/"
 #define _(x) gettext(x)
 void print_main_menu();
-string get_web(unsigned long isbn);
+string get_web(string isbn);
+void json(string in, int (*callback)(string bookname, string author, string translator,
+	string publisher, int pages, string summary, string author_intro, unsigned long long isbn13,
+	string price, string binging, string tags[]), int (*errout)(string msg, int code));
 
 #endif
