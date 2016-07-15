@@ -3,9 +3,9 @@
 
 const int VERSION1 = 0;
 const int VERSION2 = 2;
-const int VERSION3 = -1;
+const int VERSION3 = 0;
 const char install_prefix[] = "/usr/local";
 
-#define DEBUG 0
+#define DEBUG 1
 
 #endif //BOOK_MANAGE_CONFIG_HPP

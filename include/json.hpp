@@ -31,9 +31,13 @@ struct book_json
 	string binging;
 };
 
-inline string get(string name,Json::Value value){return value[name].asString();}
+inline string get (string name, Json::Value value)
+{
+	return value[name].asString();
+}
 
-string get_web(unsigned long long isbn);
-int json(string in, int (*callback)(book_json* res), int (*errout)(string msg, int code), string &name);
+string get_web (unsigned long long isbn);
+int json (string in, int (*callback) (book_json *res), int (*errout) (string msg, int code),
+          string &name);
 
 #endif
