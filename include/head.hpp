@@ -29,8 +29,9 @@ using namespace std;
 #define LOCALEDIR "/usr/share/locale/"
 #define _(x) gettext(x)
 void print_main_menu();
-string get_web (string isbn);
-int guide (char doing, char target);
-void increase (char target, string isbn);
+string get_web(string isbn);
+int guide(char doing, char target);
+void increase(char target, string isbn);
+void search(char target, string content, unsigned int flag);
 
 #endif

@@ -9,33 +9,52 @@
 #include "head.hpp"
 using namespace std;
 
-static int errout (string msg, int code);
+static int errout(string msg, int code);
 
-void increase (char target, string isbn)
+void increase(char target, string isbn)
 {
 	string jsoninfo, name;
 
 	switch (target)
 	{
 		case 'B':
-			jsoninfo = get_web (isbn);
-			json (jsoninfo, sqlin, errout, name);
+			jsoninfo = get_web(isbn);
+			json(jsoninfo, book_sql::sqlin, errout, name);
 			cout << name << endl;
 			break;
 
 		case 'U':
-			cerr << _ ("未完成") << endl;
+			cerr << _("未完成") << endl;
 			break;
 
 		default:
-			cout << _ ("选项不正确") << endl;
+			cout << _("选项不正确") << endl;
 			return;
 			break;
 	}
 }
 
-static int errout (string msg, int code)
+static int errout(string msg, int code)
 {
 	cerr << code << ":" << msg << endl;
 	return 0;
+}
+
+void search(char target, string content, unsigned int flag)
+{
+	switch (target)
+	{
+		case 'B':
+			book_sql::sqlsearch(content, flag);
+			break;
+
+		case 'U':
+			cerr << _("未完成") << endl;
+			break;
+
+		default:
+			cout << _("选项不正确") << endl;
+			return;
+			break;
+	}
 }

@@ -13,7 +13,7 @@ void print_main_menu()
 {
 	char doing, target;
 target:
-	cout << _ ("(Q)退出\t(B)书籍\t(U)用户") << endl;
+	cout << _("(Q)退出\t(B)书籍\t(U)用户") << endl;
 	cin >> target;
 
 	switch (target)
@@ -21,7 +21,7 @@ target:
 		case 'b':
 		case 'u':
 			target -= 0x20; //小写转大写
-			DEBUGOUT (target);
+			DEBUGOUT(target);
 
 		case 'B':
 		case 'U':
@@ -32,21 +32,21 @@ target:
 			return;
 
 		default:
-			cout << _ ("请输入正确的选项") << endl;
+			cout << _("请输入正确的选项") << endl;
 			goto target;
 	}
 
 	//未完成处理
 	if (target == 'U')
 	{
-		cerr << _ ("未完成") << endl;
+		cerr << _("未完成") << endl;
 		goto target;
 	}
 
 doing:
-	cout << _ ("(Q)退出\t(I)增加\t(D)删除\t(S)查询") << endl;
+	cout << _("(Q)退出\t(I)增加\t(D)删除\t(S)查询") << endl;
 
-	if (target == 'B') cout << _ ("(B)借书\t(R)还书") << endl;
+	if (target == 'B') cout << _("(B)借书\t(R)还书") << endl;
 
 	cin >> doing;
 
@@ -56,7 +56,7 @@ doing:
 		case 'r':
 			if (target != 'B')
 			{
-				cout << _ ("请输入正确的选项") << endl;
+				cout << _("请输入正确的选项") << endl;
 				goto target;
 			}
 
@@ -64,13 +64,13 @@ doing:
 		case 'd':
 		case 's':
 			doing -= 0x20; //小写转大写
-			DEBUGOUT (doing);
+			DEBUGOUT(doing);
 
 		case 'B':
 		case 'R':
 			if (target != 'B')
 			{
-				cout << _ ("请输入正确的选项") << endl;
+				cout << _("请输入正确的选项") << endl;
 				goto target;
 			}
 
@@ -84,22 +84,22 @@ doing:
 			return;
 
 		default:
-			cout << _ ("请输入正确的选项") << endl;
+			cout << _("请输入正确的选项") << endl;
 			goto doing;
 	}
 
 	//未完成处理
-	if (doing != 'I')
+	if (!(doing == 'I' || doing == 'S'))
 	{
-		cerr << _ ("未完成") << endl;
+		cerr << _("未完成") << endl;
 		goto doing;
 	}
 
-	guide (doing, target);
+	guide(doing, target);
 	goto target;
 }
 
-int guide (char doing, char target)
+int guide(char doing, char target)
 {
 	switch (target)
 	{
@@ -108,7 +108,7 @@ int guide (char doing, char target)
 			break;
 
 		default:
-			cout << _ ("选项不正确") << endl;
+			cout << _("选项不正确") << endl;
 			return -1;
 	}
 
@@ -120,27 +120,48 @@ int guide (char doing, char target)
 		case 'R':
 			if (target != 'B')
 			{
-				cout << _ ("选项不正确") << endl;
+				cout << _("选项不正确") << endl;
 				return -2;
 			}
 
 		case 'I':
 			while (true)
 			{
-				cout << _ ("请输入isbn号（0退出）：");
+				cout << _("请输入isbn号（输入0退出） ： ");
 				cin >> isbn;
 
 				if (isbn == "0") return 0;
 
-				increase (target, isbn);
+				increase(target, isbn);
+			}
+
+		case 'S':
+			while (true)
+			{
+				cout << _("请输入搜索内容（输入_退出） ： ");
+				string content;
+				cin >> content;
+
+				if (content == "_")
+					return 0;
+
+				unsigned int flag = SQL_search_flag_name | SQL_search_flag_anywhere;
+				cout << _("是否搜索简介？ [Y/n] ");
+				string yes;
+				cin >> yes;
+
+				if (yes == "Y" || yes == "y" || yes == "\n")
+					flag |= SQL_search_flag_summary;
+
+				search(target, content, flag);
+				DEBUGOUT("what");
 			}
 
 		case 'D':
-		case 'S':
 			break;
 
 		default:
-			cout << _ ("选项不正确") << endl;
+			cout << _("选项不正确") << endl;
 			return -2;
 	}
 

@@ -7,17 +7,34 @@
  ************************************************************************/
 
 #ifndef SQL_HPP
-#define SPL_HPP
+#define SQL_HPP
 
 #include <iostream>
 #include <cstdlib>
+#include <stack>
 using namespace std;
 #include <sqlite3.h>
 #include "json.hpp"
 #include "book-manage_config.hpp"
 #include "debug.hpp"
 
-int sqlin (book_json *res);
+namespace book_sql
+{
+int sqlin(book_json *res);
+int sqlsearch(string content, unsigned int flag);
+}
+
+#define SQL_search_flag_name 0x01
+#define SQL_search_flag_summary 0x02
+#define SQL_search_flag_case_sen 0x04
+#define SQL_search_flag_anywhere 0x08
+#define SQL_search_flag_head 0x10
+#define SQL_search_flag_tail 0x20
+#define SQL_search_flag_adjoin 0x40
+inline bool bitlook(unsigned int flag, unsigned int mark)
+{
+	return ((flag & mark) == mark);
+}
 
 #endif
 

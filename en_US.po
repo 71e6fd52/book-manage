@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-13 16:31+0800\n"
-"PO-Revision-Date: 2016-07-13 16:33+0800\n"
+"POT-Creation-Date: 2016-07-20 11:38+0800\n"
+"PO-Revision-Date: 2016-07-20 11:40+0800\n"
 "Last-Translator: dasd <7452756333@163.com>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
 "Language: zh_CN\n"
@@ -17,12 +17,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 2.0\n"
 
-#: src/mainlib/do.cpp:25 src/mainlib/menu.cpp:37 src/mainlib/menu.cpp:79
+#: src/mainlib/do.cpp:27 src/mainlib/do.cpp:52 src/mainlib/menu.cpp:42
+#: src/mainlib/menu.cpp:94
 msgid "未完成"
 msgstr "unfinished"
 
-#: src/mainlib/do.cpp:28 src/mainlib/menu.cpp:94 src/mainlib/menu.cpp:104
-#: src/mainlib/menu.cpp:119
+#: src/mainlib/do.cpp:31 src/mainlib/do.cpp:56 src/mainlib/menu.cpp:111
+#: src/mainlib/menu.cpp:123 src/mainlib/menu.cpp:164
 msgid "选项不正确"
 msgstr "Option is  incorrect"
 
@@ -30,20 +31,72 @@ msgstr "Option is  incorrect"
 msgid "(Q)退出\t(B)书籍\t(U)用户"
 msgstr "(Q)uit\t(B)ook\t(U)ser"
 
-#: src/mainlib/menu.cpp:31 src/mainlib/menu.cpp:50 src/mainlib/menu.cpp:62
-#: src/mainlib/menu.cpp:73
+#: src/mainlib/menu.cpp:35 src/mainlib/menu.cpp:59 src/mainlib/menu.cpp:73
+#: src/mainlib/menu.cpp:87
 msgid "请输入正确的选项"
 msgstr "Please enter the correct option"
 
-#: src/mainlib/menu.cpp:41
+#: src/mainlib/menu.cpp:47
 msgid "(Q)退出\t(I)增加\t(D)删除\t(S)查询"
 msgstr "(Q)uit\t(I)ncrease\t(D)elete\t(S)earch"
 
-#: src/mainlib/menu.cpp:42
+#: src/mainlib/menu.cpp:49
 msgid "(B)借书\t(R)还书"
 msgstr "(B)orrow books\t(R)eturn book"
 
-#: src/mainlib/menu.cpp:110
-msgid "请输入isbn号（0退出）："
-msgstr "Please enter the ISBN (0 to exit):"
+#: src/mainlib/menu.cpp:130
+msgid "请输入isbn号（输入0退出） ： "
+msgstr "Please enter the ISBN (enter 0 to exit) : "
+
+#: src/mainlib/menu.cpp:141
+msgid "请输入搜索内容（输入_退出） ： "
+msgstr "Please enter your search for content(enter _ to exit) : "
+
+#: src/mainlib/menu.cpp:149
+msgid "是否搜索简介？ [Y/n] "
+msgstr "Do you search summary? [Y/n] "
+
+#: src/sql/search.cpp:32
+msgid "ID："
+msgstr "ID:"
+
+#: src/sql/search.cpp:33
+msgid "书名："
+msgstr "book name:"
+
+#: src/sql/search.cpp:34
+msgid "作者："
+msgstr "author:"
+
+#: src/sql/search.cpp:35
+msgid "译者："
+msgstr "translator:"
+
+#: src/sql/search.cpp:36
+msgid "出版社："
+msgstr "publisher:"
+
+#: src/sql/search.cpp:37
+msgid "简介："
+msgstr "summary:"
+
+#: src/sql/search.cpp:38
+msgid "作者介绍："
+msgstr "author intro:"
+
+#: src/sql/search.cpp:39
+msgid "isbn："
+msgstr "isbn:"
+
+#: src/sql/search.cpp:40
+msgid "价格："
+msgstr "price:"
+
+#: src/sql/search.cpp:41
+msgid "装帧形式："
+msgstr "binding:"
+
+#: src/sql/search.cpp:166
+msgid "你要查询哪本的详细信息（输入ID）："
+msgstr "Which book do you want to query for more information (input ID):"
 
