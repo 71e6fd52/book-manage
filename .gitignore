@@ -36,3 +36,4 @@ bin/
 .*
 !.git/
 !.gitignore
+book-manage_config.hpp

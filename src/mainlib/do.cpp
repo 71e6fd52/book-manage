@@ -11,16 +11,12 @@ using namespace std;
 
 static int errout(string msg, int code);
 
-void increase(char target, string isbn)
+void increase(char target, string jsoninfo, string call_num)
 {
-	string jsoninfo, name;
-
 	switch (target)
 	{
 		case 'B':
-			jsoninfo = get_web(isbn);
-			json(jsoninfo, book_sql::sqlin, errout, name);
-			cout << name << endl;
+			json(jsoninfo, call_num, book_sql::sqlin, errout);
 			break;
 
 		case 'U':

@@ -142,6 +142,8 @@ int sqlsearch(string content, unsigned int flag)
 
 	if (rc)
 	{
+		delete gpsti;
+		delete gpststrp;
 		sqlite3_close(db);
 		errr;
 		return -2;
@@ -173,11 +175,15 @@ int sqlsearch(string content, unsigned int flag)
 
 	if (rc)
 	{
+		delete gpsti;
+		delete gpststrp;
 		sqlite3_close(db);
 		errr;
 		return -3;
 	}
 
+	delete gpsti;
+	delete gpststrp;
 	sqlite3_close(db);
 	return 0;
 }

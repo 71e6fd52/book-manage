@@ -10,9 +10,9 @@
 #define HEAD_HPP
 
 #include <iostream>
+#include <locale>
 extern "C"
 {
-#include <locale.h>
 #include <libintl.h>
 #include <dirent.h>
 }
@@ -31,7 +31,7 @@ using namespace std;
 void print_main_menu();
 string get_web(string isbn);
 int guide(char doing, char target);
-void increase(char target, string isbn);
+void increase(char target, string jsoninfo, string call_num);
 void search(char target, string content, unsigned int flag);
 
 #endif

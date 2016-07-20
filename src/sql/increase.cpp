@@ -126,6 +126,7 @@ int sqlin(book_json *res)
 	d(summary);
 	d(author_intro);
 	d(isbn13);
+	d(call_num);
 	d(price);
 
 	if ((res -> binding) != "")

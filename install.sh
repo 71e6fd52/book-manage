@@ -18,7 +18,7 @@ if [ $UID = 0 ];then
 		;;
 	uninstall)
 		cat install_manifest.txt | sudo xargs rm -f
-		rm -f install_manifest
+		rm -f install_manifest.txt
 		;;
 	*)
 		echo 未知选项

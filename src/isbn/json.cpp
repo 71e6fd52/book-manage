@@ -9,10 +9,8 @@
 #include "json.hpp"
 using namespace std;
 
-string get_web(string isbn)
+int get_web(string isbn, string &output)
 {
-	string output;
-
 	try
 	{
 		boost::asio::io_service io;
@@ -27,15 +25,25 @@ string get_web(string isbn)
 	catch (exception &e)
 	{
 		cerr << "Error:" << e.what() << endl;
+		return -1;
 	}
 
-	return output;
+	return 0;
+}
+#define g(x) get(x, value)
+string getbookname(string in)
+{
+	Json::Reader reader;
+	Json::Value value;
+
+	if (!reader.parse(in, value)) return "error";
+
+	return g("title");
 }
 
-int json(string in, int (*callback)(book_json *res), int (*errout)(string msg, int code),
-         string &name)
+int json(string in, string call_num, int (*callback)(book_json *res), int (*errout)(string msg,
+         int code))
 {
-#define g(x) get(x, value)
 	Json::Reader reader;
 	Json::Value value;
 
@@ -76,10 +84,10 @@ int json(string in, int (*callback)(book_json *res), int (*errout)(string msg, i
 		g("summary"),
 		g("author_intro"),
 		g("isbn13"),
+		call_num,
 		g("price"),
 		g("binding"),
 	};
-	name = g("title");
 	int tmp, i = 0;
 
 	while (((tmp = callback(&a)) < 0) && (i < 5)) ++i;

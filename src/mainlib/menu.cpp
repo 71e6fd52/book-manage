@@ -112,7 +112,7 @@ int guide(char doing, char target)
 			return -1;
 	}
 
-	string isbn;
+	string isbn, call_num, jsoninfo;
 
 	switch (doing)
 	{
@@ -127,18 +127,24 @@ int guide(char doing, char target)
 		case 'I':
 			while (true)
 			{
-				cout << _("请输入isbn号（输入0退出） ： ");
+				cout << _("请输入isbn号（输入0退出）： ");
 				cin >> isbn;
 
 				if (isbn == "0") return 0;
 
-				increase(target, isbn);
+				if (get_web(isbn, jsoninfo) != 0)
+					continue;
+
+				cout << getbookname(jsoninfo) << endl;
+				cout << _("请输入索书号： ");
+				cin >> call_num;
+				increase(target, jsoninfo, call_num);
 			}
 
 		case 'S':
 			while (true)
 			{
-				cout << _("请输入搜索内容（输入_退出） ： ");
+				cout << _("请输入搜索内容（输入_退出）： ");
 				string content;
 				cin >> content;
 
@@ -154,7 +160,6 @@ int guide(char doing, char target)
 					flag |= SQL_search_flag_summary;
 
 				search(target, content, flag);
-				DEBUGOUT("what");
 			}
 
 		case 'D':

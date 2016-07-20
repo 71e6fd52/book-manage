@@ -27,6 +27,7 @@ struct book_json
 	string summary;
 	string author_intro;
 	string isbn13;
+	string call_num;
 	string price;
 	string binding;
 };
@@ -36,8 +37,9 @@ inline string get(string name, Json::Value value)
 	return value[name].asString();
 }
 
-string get_web(unsigned long long isbn);
-int json(string in, int (*callback)(book_json *res), int (*errout)(string msg, int code),
-         string &name);
+int get_web(string isbn, string &output);
+int json(string in, string call_num, int (*callback)(book_json *res), int (*errout)(string msg,
+         int code));
+string getbookname(string in);
 
 #endif

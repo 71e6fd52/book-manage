@@ -13,9 +13,7 @@ void init();
 
 int main(int argc, char *argv[])
 {
-	setlocale(LC_ALL, "");
-	bindtextdomain(PACKAGE, LOCALEDIR);
-	textdomain(PACKAGE);
+	//setlocale(LC_ALL, "");
 	init();
 	print_main_menu();
 	return 0;
@@ -49,6 +47,7 @@ void init()
 	                  "summary\tTEXT\t\t\t\t ,\n"
 	                  "author_intro\tTEXT\t\t\t\t ,\n"
 	                  "isbn\t\tTEXT\t\t\tNOT NULL,\n"
+	                  "call_num\tTEXT\t\t\t\t ,\n"
 	                  "price\t\tTEXE\t\t\t\t ,\n"
 	                  "binding	TEXT\t\t\t\t \n);\n",
 	                  NULL, NULL, &errmsg);
@@ -59,5 +58,10 @@ void init()
 		errr;
 		return;
 	}
+
+	sqlite3_close(db);
+	locale::global(locale(""));
+	bindtextdomain(PACKAGE, LOCALEDIR);
+	textdomain(PACKAGE);
 }
 
