@@ -146,7 +146,7 @@ int sqlin(book_json *res)
 	{
 		sqlite3_close(db);
 		errr;
-		cerr << command << endl;
+		DEBUGOUT(command);
 		return -5;
 	}
 

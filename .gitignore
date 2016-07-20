@@ -37,3 +37,4 @@ bin/
 !.git/
 !.gitignore
 book-manage_config.hpp
+install_manifest.txt

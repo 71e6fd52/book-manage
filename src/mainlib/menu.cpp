@@ -9,94 +9,128 @@
 #include "head.hpp"
 using namespace std;
 
-void print_main_menu()
+void print_main_menu(char doing, char target)
 {
-	char doing, target;
+	char odoing = doing, otarget = target;
+start:
 target:
-	cout << _("(Q)退出\t(B)书籍\t(U)用户") << endl;
-	cin >> target;
 
-	switch (target)
+	if (!target)
 	{
-		case 'b':
-		case 'u':
-			target -= 0x20; //小写转大写
-			DEBUGOUT(target);
+		cout << _("(Q)退出\t(B)书籍\t(U)用户") << endl;
+		cin >> target;
 
-		case 'B':
-		case 'U':
-			break;
+		switch (target)
+		{
+			case 'b':
+			case 'u':
+				target -= 0x20; //小写转大写
+				DEBUGOUT(target);
 
-		case 'q':
-		case 'Q':
-			return;
+			case 'B':
+			case 'U':
+				break;
 
-		default:
-			cout << _("请输入正确的选项") << endl;
-			goto target;
+			case 'q':
+			case 'Q':
+				return;
+
+			default:
+				cerr << _("请输入正确的选项") << endl;
+				otarget = 0;
+				goto target;
+		}
 	}
 
 	//未完成处理
 	if (target == 'U')
 	{
-		cerr << _("未完成") << endl;
+		cerr << target << _("未完成") << endl;
+		otarget = 0;
+		target = 0;
 		goto target;
 	}
 
 doing:
-	cout << _("(Q)退出\t(I)增加\t(D)删除\t(S)查询") << endl;
 
-	if (target == 'B') cout << _("(B)借书\t(R)还书") << endl;
-
-	cin >> doing;
-
-	switch (doing)
+	if (!doing)
 	{
-		case 'b':
-		case 'r':
-			if (target != 'B')
-			{
-				cout << _("请输入正确的选项") << endl;
-				goto target;
-			}
+		cout << _("(Q)退出\t(I)增加\t(D)删除\t(S)查询") << endl;
 
-		case 'i':
-		case 'd':
-		case 's':
-			doing -= 0x20; //小写转大写
-			DEBUGOUT(doing);
+		if (target == 'B') cout << _("(B)借书\t(R)还书") << endl;
 
-		case 'B':
-		case 'R':
-			if (target != 'B')
-			{
-				cout << _("请输入正确的选项") << endl;
-				goto target;
-			}
+		cin >> doing;
 
-		case 'I':
-		case 'D':
-		case 'S':
-			break;
+		switch (doing)
+		{
+			case 'b':
+			case 'r':
+				if (target != 'B')
+				{
+					cerr << _("请输入正确的选项") << endl;
+					odoing = 0;
+					doing = 0;
+					goto doing;
+				}
+				else
+				{
+					doing -= 0x20; //小写转大写
+					DEBUGOUT(doing);
+				}
 
-		case 'q':
-		case 'Q':
-			return;
+			case 'i':
+			case 'd':
+			case 's':
+				doing -= 0x20; //小写转大写
+				DEBUGOUT(doing);
 
-		default:
-			cout << _("请输入正确的选项") << endl;
-			goto doing;
+			case 'B':
+			case 'R':
+				if (target != 'B')
+				{
+					cerr << _("请输入正确的选项") << endl;
+					odoing = 0;
+					goto doing;
+				}
+
+			case 'I':
+			case 'D':
+			case 'S':
+				break;
+
+			case 'q':
+			case 'Q':
+				return;
+
+			default:
+				cerr << _("请输入正确的选项") << endl;
+				odoing = 0;
+				doing = 0;
+				goto doing;
+		}
 	}
 
 	//未完成处理
 	if (!(doing == 'I' || doing == 'S'))
 	{
-		cerr << _("未完成") << endl;
+		cerr << doing << _("未完成") << endl;
+		odoing = 0;
+		doing = 0;
 		goto doing;
 	}
 
 	guide(doing, target);
-	goto target;
+
+	if (odoing && otarget)
+	{
+		return;
+	}
+	else
+	{
+		doing = odoing;
+		target = otarget;
+		goto start;
+	}
 }
 
 int guide(char doing, char target)
@@ -108,7 +142,7 @@ int guide(char doing, char target)
 			break;
 
 		default:
-			cout << _("选项不正确") << endl;
+			cerr << _("选项不正确") << endl;
 			return -1;
 	}
 
@@ -120,8 +154,8 @@ int guide(char doing, char target)
 		case 'R':
 			if (target != 'B')
 			{
-				cout << _("选项不正确") << endl;
-				return -2;
+				cerr << _("选项不正确") << endl;
+				return -1;
 			}
 
 		case 'I':
@@ -151,13 +185,20 @@ int guide(char doing, char target)
 				if (content == "_")
 					return 0;
 
-				unsigned int flag = SQL_search_flag_name | SQL_search_flag_anywhere;
-				cout << _("是否搜索简介？ [Y/n] ");
-				string yes;
-				cin >> yes;
+				unsigned int flag;
+				ifstream file(bookmanagehome + "search.conf",
+				              ios_base::in | ios_base::binary);
 
-				if (yes == "Y" || yes == "y" || yes == "\n")
-					flag |= SQL_search_flag_summary;
+				if (file.is_open())
+				{
+					file.read((char *)&flag, sizeof(unsigned int));
+					file.close();
+				}
+				else
+				{
+					cerr << _("读取配置文件失败") << endl;
+					return -2;
+				}
 
 				search(target, content, flag);
 			}
@@ -166,8 +207,8 @@ int guide(char doing, char target)
 			break;
 
 		default:
-			cout << _("选项不正确") << endl;
-			return -2;
+			cerr << _("选项不正确") << endl;
+			return -1;
 	}
 
 	return 0;

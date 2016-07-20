@@ -15,6 +15,10 @@ namespace book_sql
 {
 
 #define errr cerr << __FILE__ << ":" << __LINE__ << ":" << __func__ << ":" << errmsg << endl
+#define out(x,y) \
+	if (column_value[y])\
+		cout << _(x) << column_value[y] << endl;
+
 
 stack<int> *gpsti = NULL;
 stack<string *> *gpststrp = NULL;
@@ -29,16 +33,17 @@ static int getmain(void *params, int n_column, char **column_value, char **colum
 
 static int outall(void *params, int n_column, char **column_value, char **column_name)
 {
-	cout << _("ID：") << column_value[0] << endl;
-	cout << _("书名：") << column_value[1] << endl;
-	cout << _("作者：") << column_value[2] << endl;
-	cout << _("译者：") << column_value[3] << endl;
-	cout << _("出版社：") << column_value[4] << endl;
-	cout << _("简介：") << column_value[5] << endl;
-	cout << _("作者介绍：") << column_value[6] << endl;
-	cout << _("isbn：") << column_value[7] << endl;
-	cout << _("价格：") << column_value[8] << endl;
-	cout << _("装帧形式：") << column_value[9] << endl;
+	out("ID：", 0);
+	out("书名：", 1);
+	out("作者：", 2);
+	out("译者：", 3);
+	out("出版社：", 4);
+	out("简介：", 5);
+	out("作者介绍：", 6);
+	out("isbn：", 7);
+	out("价格：", 8);
+	out("装帧形式：", 9);
+	out("索书号：", 10);
 	return 0;
 }
 
@@ -168,7 +173,7 @@ int sqlsearch(string content, unsigned int flag)
 	cout << _("你要查询哪本的详细信息（输入ID）：");
 	string ID;
 	cin >> ID;
-	tmp =  "SELECT ID,name,author,translator,publisher,summary,author_intro,isbn,price,binding FROM book WHERE ID = ";
+	tmp =  "SELECT ID,name,author,translator,publisher,summary,author_intro,isbn,price,binding,call_num FROM book WHERE ID = ";
 	tmp += ID;
 	tmp += ";";
 	rc = sqlite3_exec(db, tmp.c_str(), outall, NULL, &errmsg);
