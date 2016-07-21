@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-20 15:13+0800\n"
-"PO-Revision-Date: 2016-07-20 12:27+0800\n"
+"POT-Creation-Date: 2016-07-21 13:59+0800\n"
+"PO-Revision-Date: 2016-07-21 14:06+0800\n"
 "Last-Translator: dasd <7452756333@163.com>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
 "Language: zh_CN\n"
@@ -17,89 +17,107 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 2.0\n"
 
-#: src/mainlib/do.cpp:23 src/mainlib/do.cpp:48 src/mainlib/menu.cpp:42
-#: src/mainlib/menu.cpp:94
-msgid "未完成"
-msgstr "未完成"
+#: src/main/main.cpp:81 src/setting/search.cpp:101
+msgid "写入默认配置文件错误"
+msgstr "写入默认配置文件错误"
 
-#: src/mainlib/do.cpp:27 src/mainlib/do.cpp:52 src/mainlib/menu.cpp:111
-#: src/mainlib/menu.cpp:123 src/mainlib/menu.cpp:169
-msgid "选项不正确"
-msgstr "选项不正确"
+#: src/main/main.cpp:140
+msgid "Bye."
+msgstr "Bye."
 
-#: src/mainlib/menu.cpp:16
-msgid "(Q)退出\t(B)书籍\t(U)用户"
-msgstr "(Q)退出\t(B)书籍\t(U)用户"
+#: src/main/main.cpp:147
+msgid "(S)搜索设置"
+msgstr "(S)搜索设置"
 
-#: src/mainlib/menu.cpp:35 src/mainlib/menu.cpp:59 src/mainlib/menu.cpp:73
-#: src/mainlib/menu.cpp:87
+#: src/main/main.cpp:161 src/mainlib/menu.cpp:41 src/mainlib/menu.cpp:74
+#: src/mainlib/menu.cpp:95 src/mainlib/menu.cpp:110
 msgid "请输入正确的选项"
 msgstr "请输入正确的选项"
 
-#: src/mainlib/menu.cpp:47
+#: src/mainlib/do.cpp:23 src/mainlib/do.cpp:48 src/mainlib/menu.cpp:50
+#: src/mainlib/menu.cpp:120
+msgid "未完成"
+msgstr "未完成"
+
+#: src/mainlib/do.cpp:27 src/mainlib/do.cpp:52 src/mainlib/menu.cpp:149
+#: src/mainlib/menu.cpp:161 src/mainlib/menu.cpp:214
+msgid "选项不正确"
+msgstr "选项不正确"
+
+#: src/mainlib/menu.cpp:20
+msgid "(Q)退出\t(B)书籍\t(U)用户"
+msgstr "(Q)退出\t(B)书籍\t(U)用户"
+
+#: src/mainlib/menu.cpp:60
 msgid "(Q)退出\t(I)增加\t(D)删除\t(S)查询"
 msgstr "(Q)退出\t(I)增加\t(D)删除\t(S)查询"
 
-#: src/mainlib/menu.cpp:49
+#: src/mainlib/menu.cpp:62
 msgid "(B)借书\t(R)还书"
 msgstr "(B)借书\t(R)还书"
 
-#: src/mainlib/menu.cpp:130
+#: src/mainlib/menu.cpp:168
 msgid "请输入isbn号（输入0退出）： "
 msgstr "请输入isbn号（输入0退出）： "
 
-#: src/mainlib/menu.cpp:139
+#: src/mainlib/menu.cpp:177
 msgid "请输入索书号： "
 msgstr "请输入索书号： "
 
-#: src/mainlib/menu.cpp:147
+#: src/mainlib/menu.cpp:185
 msgid "请输入搜索内容（输入_退出）： "
 msgstr "请输入搜索内容（输入_退出）： "
 
-#: src/mainlib/menu.cpp:155
-msgid "是否搜索简介？ [Y/n] "
-msgstr "是否搜索简介？ [Y/n] "
+#: src/mainlib/menu.cpp:203
+msgid "读取配置文件失败"
+msgstr "读取配置文件失败"
 
-#: src/sql/search.cpp:32
-msgid "ID："
-msgstr "ID："
+#: src/setting/search.cpp:16
+msgid "是否搜索名称[Y/n]"
+msgstr "是否搜索名称[Y/n]"
 
-#: src/sql/search.cpp:33
-msgid "书名："
-msgstr "书名："
+#: src/setting/search.cpp:34
+msgid "是否搜索简介[Y/n]"
+msgstr "是否搜索简介[Y/n]"
 
-#: src/sql/search.cpp:34
-msgid "作者："
-msgstr "作者："
+#: src/setting/search.cpp:52
+msgid "是否区分大小写[N/y]"
+msgstr "是否区分大小写[N/y]"
 
-#: src/sql/search.cpp:35
-msgid "译者："
-msgstr "译者："
+#: src/setting/search.cpp:68
+msgid "搜索(H)头，(T)尾，还是(A)任何地方[A/h/t]"
+msgstr "搜索(H)头，(T)尾，还是(A)任何地方[A/h/t]"
 
-#: src/sql/search.cpp:36
-msgid "出版社："
-msgstr "出版社："
-
-#: src/sql/search.cpp:37
-msgid "简介："
-msgstr "简介："
-
-#: src/sql/search.cpp:38
-msgid "作者介绍："
-msgstr "作者介绍："
-
-#: src/sql/search.cpp:39
-msgid "isbn："
-msgstr "isbn："
-
-#: src/sql/search.cpp:40
-msgid "价格："
-msgstr "价格："
-
-#: src/sql/search.cpp:41
-msgid "装帧形式："
-msgstr "装帧形式："
-
-#: src/sql/search.cpp:168
+#: src/sql/search.cpp:173
 msgid "你要查询哪本的详细信息（输入ID）："
 msgstr "你要查询哪本的详细信息（输入ID）："
+
+#~ msgid "ID："
+#~ msgstr "ID："
+
+#~ msgid "书名："
+#~ msgstr "书名："
+
+#~ msgid "作者："
+#~ msgstr "作者："
+
+#~ msgid "译者："
+#~ msgstr "译者："
+
+#~ msgid "出版社："
+#~ msgstr "出版社："
+
+#~ msgid "简介："
+#~ msgstr "简介："
+
+#~ msgid "作者介绍："
+#~ msgstr "作者介绍："
+
+#~ msgid "isbn："
+#~ msgstr "isbn："
+
+#~ msgid "价格："
+#~ msgstr "价格："
+
+#~ msgid "装帧形式："
+#~ msgstr "装帧形式："
