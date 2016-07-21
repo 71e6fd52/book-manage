@@ -24,17 +24,13 @@ int sqlin(book_json *res);
 int sqlsearch(string content, unsigned int flag);
 }
 
-#define SQL_search_flag_name 0x01
-#define SQL_search_flag_summary 0x02
-#define SQL_search_flag_case_sen 0x04
-#define SQL_search_flag_anywhere 0x08
-#define SQL_search_flag_head 0x10
-#define SQL_search_flag_tail 0x20
-#define SQL_search_flag_adjoin 0x40
-inline bool bitlook(unsigned int flag, unsigned int mark)
-{
-	return ((flag & mark) == mark);
-}
+const unsigned int SQL_search_flag_name = 0x01;
+const unsigned int SQL_search_flag_summary = 0x02;
+const unsigned int SQL_search_flag_case_sen = 0x04;
+const unsigned int SQL_search_flag_anywhere = 0x08;
+const unsigned int SQL_search_flag_head = 0x10;
+const unsigned int SQL_search_flag_tail = 0x20;
+const unsigned int SQL_search_flag_adjoin = 0x40;
 
 #endif
 

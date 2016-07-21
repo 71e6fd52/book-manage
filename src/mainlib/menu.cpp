@@ -18,7 +18,9 @@ target:
 	if (!target)
 	{
 		cout << _("(Q)退出\t(B)书籍\t(U)用户") << endl;
-		cin >> target;
+		cin.get(target);
+
+		if (target != '\n') cin.get();
 
 		switch (target)
 		{
@@ -59,7 +61,9 @@ doing:
 
 		if (target == 'B') cout << _("(B)借书\t(R)还书") << endl;
 
-		cin >> doing;
+		cin.get(doing);
+
+		if (doing != '\n') cin.get();
 
 		switch (doing)
 		{

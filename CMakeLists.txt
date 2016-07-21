@@ -3,7 +3,7 @@ project(book-manage)
 # 版本号
 set (Major_Version_Number 0)
 set (Minor_Version_Number 2)
-set (Revision_Number 2)
+set (Revision_Number 3)
 # debug和release的参数
 SET(CMAKE_CXX_FLAGS_DEBUG "--std=c++11 -O0 -Wall -g -ggdb ")
 SET(CMAKE_CXX_FLAGS_RELEASE "--std=c++11 -O3 -Wall")

@@ -36,6 +36,8 @@ string get_web(string isbn);
 int guide(char doing, char target);
 void increase(char target, string jsoninfo, string call_num);
 void search(char target, string content, unsigned int flag);
+void search_setting();
+
 extern string bookmanagehome;
 
 #endif

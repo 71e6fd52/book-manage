@@ -49,10 +49,10 @@ static int outall(void *params, int n_column, char **column_value, char **column
 
 int sqlsearch(string content, unsigned int flag)
 {
-	if (!(bitlook(flag, SQL_search_flag_name) || bitlook(flag, SQL_search_flag_summary)))
+	if (!(flag & SQL_search_flag_name || flag & SQL_search_flag_summary))
 		return 1;
 
-	if (bitlook(flag, SQL_search_flag_anywhere))
+	if (flag & SQL_search_flag_anywhere)
 		flag |= SQL_search_flag_head | SQL_search_flag_tail;
 
 	sqlite3 *db;
@@ -73,10 +73,10 @@ int sqlsearch(string content, unsigned int flag)
 	tmp = "SELECT id,name FROM book WHERE";
 	bool case_sen = false;
 
-	if (bitlook(flag, SQL_search_flag_case_sen))
+	if (flag & SQL_search_flag_case_sen)
 		case_sen = true;
 
-	if (bitlook(flag, SQL_search_flag_name))
+	if (flag & SQL_search_flag_name)
 	{
 		tmp += " name";
 
@@ -87,7 +87,7 @@ int sqlsearch(string content, unsigned int flag)
 
 		tmp += " '";
 
-		if (bitlook(flag, SQL_search_flag_head))
+		if (flag & SQL_search_flag_head)
 		{
 			if (case_sen)
 				tmp += "*";
@@ -97,7 +97,7 @@ int sqlsearch(string content, unsigned int flag)
 
 		tmp += content;
 
-		if (bitlook(flag, SQL_search_flag_tail))
+		if (flag & SQL_search_flag_tail)
 		{
 			if (case_sen)
 				tmp += "*";
@@ -107,11 +107,11 @@ int sqlsearch(string content, unsigned int flag)
 
 		tmp += "'";
 
-		if (bitlook(flag, SQL_search_flag_summary))
+		if (flag & SQL_search_flag_summary)
 			tmp += " AND";
 	}
 
-	if (bitlook(flag, SQL_search_flag_summary))
+	if (flag & SQL_search_flag_summary)
 	{
 		tmp += " summary";
 
@@ -122,7 +122,7 @@ int sqlsearch(string content, unsigned int flag)
 
 		tmp += " '";
 
-		if (bitlook(flag, SQL_search_flag_head))
+		if (flag & SQL_search_flag_head)
 		{
 			if (case_sen)
 				tmp += "*";
@@ -132,7 +132,7 @@ int sqlsearch(string content, unsigned int flag)
 
 		tmp += content;
 
-		if (bitlook(flag, SQL_search_flag_tail))
+		if (flag & SQL_search_flag_tail)
 		{
 			if (case_sen)
 				tmp += "*";

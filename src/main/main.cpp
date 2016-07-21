@@ -12,6 +12,8 @@ using namespace std;
 string bookmanagehome;
 
 void init();
+void end();
+void setting();
 
 int main(int argc, char *argv[])
 {
@@ -26,12 +28,13 @@ int main(int argc, char *argv[])
 		{ "search", no_argument, NULL, 's' },
 		{ "borrow", no_argument, NULL, 'b' },
 		{ "return", no_argument, NULL, 'r' },
+		{ "setting", no_argument, NULL, 'S' },
 		{ NULL, no_argument, NULL, 0 }
 	};
 	char doing = 0, target = 0;
 	int opt;
 
-	while ((opt = getopt_long(argc, argv, "BUidsbr", longopts, NULL)) != -1)
+	while ((opt = getopt_long(argc, argv, "BUidsbrS", longopts, NULL)) != -1)
 	{
 		switch (opt)
 		{
@@ -48,12 +51,17 @@ int main(int argc, char *argv[])
 				doing = opt - 0x20;
 				break;
 
+			case 'S':
+				setting();
+				break;
+
 			default:
 				break;
 		}
 	}
 
 	print_main_menu(doing, target);
+	end();
 	return 0;
 }
 
@@ -68,7 +76,11 @@ void init()
 	{
 		ofstream file(bookmanagehome + "search.conf" , ios_base::out | ios_base::binary);
 
-		if (!file.is_open())exit(1);
+		if (!file.is_open())
+		{
+			cerr << _("写入默认配置文件错误") << endl;
+			exit(1);
+		}
 
 		unsigned int flag = SQL_search_flag_name |
 		                    SQL_search_flag_summary |
@@ -123,3 +135,33 @@ void init()
 	textdomain(PACKAGE);
 }
 
+void end()
+{
+	cout << _("Bye.") << endl;
+	exit(0);
+}
+
+void setting()
+{
+which:
+	cout << _("(S)搜索设置") << endl;
+	char which;
+	cin.get(which);
+
+	if (which != '\n') cin.get();
+
+	switch (which)
+	{
+		case 'S':
+		case 's':
+			search_setting();
+			break;
+
+		default:
+			cerr << _("请输入正确的选项") << endl;
+			goto which;
+			break;
+	}
+
+	end();
+}
