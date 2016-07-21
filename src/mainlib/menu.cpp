@@ -168,7 +168,11 @@ int guide(char doing, char target)
 				cout << _("请输入isbn号（输入0退出）： ");
 				cin >> isbn;
 
-				if (isbn == "0") return 0;
+				if (isbn == "0")
+				{
+					cin.get();
+					return 0;
+				}
 
 				if (get_web(isbn, jsoninfo) != 0)
 					continue;
@@ -187,7 +191,10 @@ int guide(char doing, char target)
 				cin >> content;
 
 				if (content == "_")
+				{
+					cin.get();
 					return 0;
+				}
 
 				unsigned int flag;
 				ifstream file(bookmanagehome + "search.conf",
