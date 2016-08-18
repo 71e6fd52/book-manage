@@ -59,7 +59,7 @@ doing:
 	{
 		cout << _("(Q)退出\t(I)增加\t(D)删除\t(S)查询") << endl;
 
-		if (target == 'B') cout << _("(B)借书\t(R)还书") << endl;
+		if (target == 'B') cout << _("ISB(N)查询\t(B)借书\t(R)还书") << endl;
 
 		cin.get(doing);
 
@@ -69,6 +69,7 @@ doing:
 		{
 			case 'b':
 			case 'r':
+			case 'n':
 				if (target != 'B')
 				{
 					cerr << _("请输入正确的选项") << endl;
@@ -90,6 +91,7 @@ doing:
 
 			case 'B':
 			case 'R':
+			case 'N':
 				if (target != 'B')
 				{
 					cerr << _("请输入正确的选项") << endl;
@@ -137,29 +139,35 @@ doing:
 	}
 }
 
+static int errout(string msg, int code)
+{
+	cerr << code << ":" << msg << endl;
+	return 0;
+}
+
 int guide(char doing, char target)
 {
-	switch (target)
-	{
-		case 'B':
-		case 'U':
-			break;
-
-		default:
-			cerr << _("选项不正确") << endl;
-			return -1;
-	}
-
 	string isbn, call_num, jsoninfo;
 
 	switch (doing)
 	{
-		case 'B':
-		case 'R':
-			if (target != 'B')
+		case 'N':
+			while (true)
 			{
-				cerr << _("选项不正确") << endl;
-				return -1;
+				cout << _("请输入isbn号（输入0退出）： ");
+				cin >> isbn;
+
+				if (isbn == "0")
+				{
+					cin.get();
+					return 0;
+				}
+
+				if (get_web(isbn, jsoninfo) != 0)
+					continue;
+
+				cout << getbookname(jsoninfo) << endl;
+				json(jsoninfo, "", outbookinfo, errout);
 			}
 
 		case 'I':
@@ -208,7 +216,7 @@ int guide(char doing, char target)
 				else
 				{
 					cerr << _("读取配置文件失败") << endl;
-					return -2;
+					return -1;
 				}
 
 				search(target, content, flag);
@@ -216,10 +224,6 @@ int guide(char doing, char target)
 
 		case 'D':
 			break;
-
-		default:
-			cerr << _("选项不正确") << endl;
-			return -1;
 	}
 
 	return 0;

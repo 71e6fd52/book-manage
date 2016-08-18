@@ -88,9 +88,7 @@ int json(string in, string call_num, int (*callback)(book_json *res), int (*erro
 		g("price"),
 		g("binding"),
 	};
-	int tmp, i = 0;
-
-	while (((tmp = callback(&a)) < 0) && (i < 5)) ++i;
-
+	int tmp;
+	tmp = callback(&a);
 	return tmp;
 }

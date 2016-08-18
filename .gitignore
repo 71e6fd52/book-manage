@@ -38,3 +38,6 @@ bin/
 !.gitignore
 book-manage_config.hpp
 install_manifest.txt
+cscope.*
+tags
+locale/

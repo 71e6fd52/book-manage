@@ -93,7 +93,10 @@ void init()
 		test.close();
 	}
 
-#define errr cerr << __FILE__ << ":" << __LINE__ << ":" << __func__ << ":" << errmsg << endl
+#define errr \
+	cerr << __FILE__ << ":" << __LINE__ << ":" << __func__;\
+	if (errmsg != NULL) cerr << ":" << errmsg; \
+	cerr << endl;
 	sqlite3 *db;
 	char *errmsg = NULL;
 	string tmp = bookmanagehome + "book.db";

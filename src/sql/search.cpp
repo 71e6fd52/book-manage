@@ -14,7 +14,10 @@ using namespace std;
 namespace book_sql
 {
 
-#define errr cerr << __FILE__ << ":" << __LINE__ << ":" << __func__ << ":" << errmsg << endl
+#define errr \
+	cerr << __FILE__ << ":" << __LINE__ << ":" << __func__;\
+	if (errmsg != NULL) cerr << ":" << errmsg; \
+	cerr << endl;
 #define out(x,y) \
 	if (column_value[y])\
 		cout << _(x) << column_value[y] << endl;

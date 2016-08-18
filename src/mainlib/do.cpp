@@ -54,3 +54,21 @@ void search(char target, string content, unsigned int flag)
 			break;
 	}
 }
+
+int outbookinfo(book_json *res)
+{
+#define p(x) cout << #x << ":" << res -> x << endl;
+	p(bookname);
+	p(author);
+	p(translator);
+	p(publisher);
+	p(pages);
+	p(menu);
+	p(summary);
+	p(author_intro);
+	p(isbn13);
+	p(call_num);
+	p(price);
+	p(binding);
+	return 0;
+}

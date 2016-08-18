@@ -21,15 +21,15 @@ extern "C"
 }
 using namespace std;
 
-#include "json/json.h"
+//#include "json/json.h"
 
-#include "avhttp.hpp"
+//#include "avhttp.hpp"
 #include "debug.hpp"
 #include "book-manage_config.hpp"
 #include "sql.hpp"
 
-#define PACKAGE "book-manage"
-#define LOCALEDIR "/usr/share/locale/"
+//#define PACKAGE "book-manage"
+//#define LOCALEDIR "/usr/share/locale/"
 #define _(x) gettext(x)
 void print_main_menu(char doing, char target);
 string get_web(string isbn);
@@ -37,6 +37,7 @@ int guide(char doing, char target);
 void increase(char target, string jsoninfo, string call_num);
 void search(char target, string content, unsigned int flag);
 void search_setting();
+int outbookinfo(book_json *res);
 
 extern string bookmanagehome;
 

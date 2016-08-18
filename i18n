@@ -9,12 +9,14 @@ case $1 in
 	rm -f old_zh_CN.po old_en_US.po book-manage.pot
 	;;
 2)
-	rm -f ./locale/zh_CN/LC_MESSAGES/book-manage.mo
-	rm -f ./locale/en_US/LC_MESSAGES/book-manage.mo
-	msgfmt zh_CN.po -o book-manage.mo
-	mv ./book-manage.mo ./locale/zh_CN/LC_MESSAGES/book-manage.mo
-	msgfmt en_US.po -o book-manage.mo
-	mv ./book-manage.mo ./locale/en_US/LC_MESSAGES/book-manage.mo
+	mkdir -p /home/datsd/+program/book-manage/locale/en_US/LC_MESSAGES/
+	mkdir -p /home/datsd/+program/book-manage/locale/zh_CN/LC_MESSAGES/
+	rm -f $3/locale/zh_CN/LC_MESSAGES/*
+	rm -f $3/locale/en_US/LC_MESSAGES/*
+	msgfmt $3/zh_CN.po -o /tmp/$2.mo
+	mv /tmp/$2.mo $3/locale/zh_CN/LC_MESSAGES/$2.mo
+	msgfmt $3/en_US.po -o /tmp/$2.mo
+	mv /tmp/$2.mo $3/locale/en_US/LC_MESSAGES/$2.mo
 	;;
 *)
 	echo 未知选项
